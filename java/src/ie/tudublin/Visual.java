@@ -89,7 +89,7 @@ public abstract class Visual extends PApplet
 
 	public void loadAudio(String filename)
 	{
-		ap = minim.loadFile("java/data/Queen  Bohemian Rhapsody (Official Video Remastered).mp3", frameSize);
+		ap = minim.loadFile(filename, frameSize);
 		ab = ap.mix;
 	}
 

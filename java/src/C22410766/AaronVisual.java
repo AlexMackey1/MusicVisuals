@@ -22,7 +22,7 @@ public class AaronVisual extends Visual{
         startMinim();
 
         // Call loadAudio to load an audio file to process
-        // loadAudio("heroplanet.mp3");
+        loadAudio("MusicVisuals/java/data/QueenBohemianRhapsody.mp3");
 
         // Call this instead to read audio from the microphone
         startListening();
