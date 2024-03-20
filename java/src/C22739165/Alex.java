@@ -1,45 +1,26 @@
 package C22739165;
 
-import example.AudioBandsVisual;
-import example.WaveForm;
-import ie.tudublin.*;
+import ie.tudublin.Visual;
 
+public class Alex {
+    Visual visual; // Assuming Visual is your PApplet subclass
 
-public class Alex extends Visual{
-    
-
-    public void settings() {
-        size(1024, 500);
-
-        // Use this to make fullscreen
-        // fullScreen();
-
-        // Use this to make fullscreen and use P3D for 3D graphics
-        // fullScreen(P3D, SPAN);
-    }
-
-    public void setup() {
-        startMinim();
-
-        // Call loadAudio to load an audio file to process
-        // loadAudio("heroplanet.mp3");
-
-        // Call this instead to read audio from the microphone
-        startListening();
-
-        
-    }
-
-    public void keyPressed() {
-        if (key == ' ') {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-        }
+    public Alex(Visual visual) {
+        this.visual = visual;
     }
 
     public void draw() {
-        background(0);
-        circle(width/2, height/2, 200);
+        visual.background(0);
+        visual.calculateAverageAmplitude();
+        visual.stroke(visual.map(visual.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        visual.strokeWeight(5);
+        visual.noFill();
+        visual.lights();
+        visual.pushMatrix();
+        visual.translate(visual.width / 2, visual.height / 2, -200);
+        visual.rotateX(visual.frameCount * 0.01f);
+        visual.rotateZ(visual.frameCount * 0.01f);
+        visual.box(50 + (200 * visual.getSmoothedAmplitude()));
+        visual.popMatrix();
     }
 }
-

@@ -1,42 +1,17 @@
 package C22410766;
 
-import ie.tudublin.*;
+import ie.tudublin.Visual;
 
+public class AaronVisual {
+    Visual visual;
 
-public class AaronVisual extends Visual{
-    
-
-    public void settings() {
-        size(1024, 500);
-
-        // Use this to make fullscreen
-        // fullScreen();
-
-        // Use this to make fullscreen and use P3D for 3D graphics
-        // fullScreen(P3D, SPAN);
-    }
-
-    public void setup() {
-        startMinim();
-
-        // Call loadAudio to load an audio file to process
-        loadAudio("MusicVisuals/java/data/QueenBohemianRhapsody.mp3");
-
-        // Call this instead to read audio from the microphone
-        startListening();
-
-    }
-
-    public void keyPressed() {
-        if (key == '1') {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-        }
+    public AaronVisual(Visual visual) {
+        this.visual = visual;
     }
 
     public void draw() {
-        background(255);
-        fill(255, 0, 0);
-        circle(width/2, height/2, 200);
+        visual.background(255);
+        visual.fill(255, 0, 0);
+        visual.circle(visual.width / 2, visual.height / 2, 200);
     }
 }
