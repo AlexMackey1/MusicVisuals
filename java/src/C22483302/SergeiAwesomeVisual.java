@@ -3,9 +3,15 @@ package C22483302;
 import ie.tudublin.Visual;
 
 public class SergeiAwesomeVisual extends Visual{
+
+    Visual visual;
+
+    public SergeiAwesomeVisual(Visual visual) {
+        this.visual = visual;
+    }
     
     boolean twocubes = false;
-
+/* 
     public void settings()
     {
         size(800, 800, P3D);
@@ -41,6 +47,7 @@ public class SergeiAwesomeVisual extends Visual{
         //startListening(); 
         
     }
+*/
 
     float smoothedBoxSize = 0;
 

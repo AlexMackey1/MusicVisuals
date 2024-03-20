@@ -3,11 +3,13 @@ package Mercury;
 import ie.tudublin.Visual;
 import C22739165.Alex;
 import C22410766.AaronVisual;
+import C22483302.SergeiAwesomeVisual;
 
 public class BohemianRhapsody extends Visual {
     int mode = 0;
     Alex alex;
     AaronVisual aaron;
+    SergeiAwesomeVisual sergei;
 
     public void settings() {
         size(800, 600, P3D);
@@ -21,6 +23,7 @@ public class BohemianRhapsody extends Visual {
         colorMode(HSB);
         alex = new Alex(this); // Pass 'this' as the PApplet context
         aaron = new AaronVisual(this);
+        sergei = new SergeiAwesomeVisual(this);
     }
 
     public void keyPressed() {
@@ -43,6 +46,9 @@ public class BohemianRhapsody extends Visual {
                 break;
             case 1:
                 aaron.draw();
+                break;
+            case 2:
+                sergei.draw();
                 break;
             default:
                 background(0); // Default background
