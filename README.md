@@ -15,7 +15,7 @@ Student Number and Student Name: Alex Mackey - C22739165
 visuals of Bohemian Rhapsody 
 
 # Instructions
-
+merge practice
 # How it works
 
 # What I am most proud of in the assignment

@@ -1,7 +1,5 @@
 package C22410766;
 
-import example.AudioBandsVisual;
-import example.WaveForm;
 import ie.tudublin.*;
 
 

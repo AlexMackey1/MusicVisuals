@@ -1,6 +1,7 @@
 package ie.tudublin;
 
-import C22410766.AaronVisual;;
+import C22410766.AaronVisual;
+import ie.tudublin.Visual;
 
 
 public class Main {
