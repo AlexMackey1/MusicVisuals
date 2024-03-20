@@ -25,7 +25,6 @@ public class AaronVisual extends Visual{
         // Call this instead to read audio from the microphone
         startListening();
 
-        
     }
 
     public void keyPressed() {
