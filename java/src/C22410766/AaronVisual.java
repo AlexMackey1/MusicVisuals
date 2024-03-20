@@ -29,14 +29,15 @@ public class AaronVisual extends Visual{
     }
 
     public void keyPressed() {
-        if (key == ' ') {
+        if (key == '1') {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
     }
 
     public void draw() {
-        background(0);
+        background(255);
+        fill(255, 0, 0);
         circle(width/2, height/2, 200);
     }
 }
