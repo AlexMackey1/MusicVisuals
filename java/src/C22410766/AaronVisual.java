@@ -1,7 +1,5 @@
 package C22410766;
 
-import example.AudioBandsVisual;
-import example.WaveForm;
 import ie.tudublin.*;
 
 
@@ -22,7 +20,7 @@ public class AaronVisual extends Visual{
         startMinim();
 
         // Call loadAudio to load an audio file to process
-        // loadAudio("heroplanet.mp3");
+        loadAudio("MusicVisuals/java/data/Queen  Bohemian Rhapsody (Official Video Remastered).mp3");
 
         // Call this instead to read audio from the microphone
         startListening();
