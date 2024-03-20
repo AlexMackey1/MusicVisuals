@@ -25,11 +25,10 @@ public class AaronVisual extends Visual{
         // Call this instead to read audio from the microphone
         startListening();
 
-        
     }
 
     public void keyPressed() {
-        if (key == ' ') {
+        if (key == '1') {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
