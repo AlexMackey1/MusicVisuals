@@ -18,7 +18,7 @@ public class BohemianRhapsody extends Visual {
     public void setup() {
         startMinim();
         // Make sure the path is correct. It assumes the file is in the data folder.
-        loadAudio("QueenBohemianRhapsody.mp3");
+        loadAudio("MusicVisuals/java/data/QueenBohemianRhapsody.mp3");
         getAudioPlayer().play();  // Start playing the audio for debugging
         colorMode(HSB);
         alex = new Alex(this); // Pass 'this' as the PApplet context
