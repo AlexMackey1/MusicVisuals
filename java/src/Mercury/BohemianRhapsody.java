@@ -48,7 +48,7 @@ public class BohemianRhapsody extends Visual {
                 aaron.draw();
                 break;
             case 2:
-                sergei.draw();
+                //sergei.draw();
                 break;
             default:
                 background(0); // Default background
