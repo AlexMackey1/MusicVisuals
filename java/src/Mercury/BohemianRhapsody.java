@@ -6,7 +6,7 @@ import C22410766.AaronVisual;
 import C22483302.SergeiAwesomeVisual;
 
 public class BohemianRhapsody extends Visual {
-    int mode = 0;
+    int mode = 1;
     Alex alex;
     AaronVisual aaron;
     SergeiAwesomeVisual sergei;
