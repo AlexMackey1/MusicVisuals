@@ -17,8 +17,17 @@ class BoxSet {
         this.numBoxes = numBoxes;
     }
 
-    public void update(float amplitude) {
+    // Add new properties to store the color
+    float colorR, colorG, colorB;
+
+    public void update(float amplitude, float[] bands) {
         this.amplitude = amplitude;
+        if (bands.length >= 3) {
+            // Assuming you want to use the first three bands for coloring
+            colorR = PApplet.map(bands[0], 0, 1, 100, 255); // Map the first band to red
+            colorG = PApplet.map(bands[1], 0, 1, 100, 255); // Map the second band to green
+            colorB = PApplet.map(bands[2], 0, 1, 100, 255); // Map the third band to blue
+        }
     }
 
     public void draw() {
@@ -29,13 +38,8 @@ class BoxSet {
             float spacing = 360.0f / numBoxes;
             float currentAngle = PApplet.radians(spacing * i + angle);
 
-            // Calculate color based on amplitude
-            float r = PApplet.map(amplitude, 0, 1, 100, 255); // Red from low to high intensity
-            float g = PApplet.map(amplitude, 0, 1, 255, 100); // Green from high to low intensity
-            float b = 255 - r; // Blue inversely related to red
-
-            visual.stroke(r, g, b);
-            visual.fill(r, g, b, 150); // Semi-transparent fill
+            visual.stroke(colorR, colorG, colorB); // Use the colors based on the frequency bands
+            visual.fill(colorR, colorG, colorB, 150); // Use a semi-transparent fill
 
             visual.rotateX(currentAngle);
             visual.rotateY(currentAngle);

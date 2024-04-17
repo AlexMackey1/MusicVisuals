@@ -19,23 +19,21 @@ public class Alex {
     }
     
     public void draw() {
-        visual.background(0); // Set the background to black
         visual.background(0);
         try {
-            visual.calculateFFT(); // Perform FFT analysis
+            visual.calculateFFT();
         } catch (VisualException e) {
             e.printStackTrace();
         }
-        visual.calculateFrequencyBands(); // Calculate frequency bands
-        visual.calculateAverageAmplitude(); // Calculate amplitude
-        float[] bands = visual.getSmoothedBands(); // max 667
-        float amplitude = visual.getSmoothedAmplitude(); // max value is 0.233
+        visual.calculateFrequencyBands();
+        visual.calculateAverageAmplitude();
+        float[] bands = visual.getSmoothedBands();
+        float amplitude = visual.getSmoothedAmplitude();
 
-
-        // Update and draw each BoxSet
+        // Update and draw each BoxSet with both amplitude and frequency bands
         for (BoxSet boxSet : boxSets) {
-            boxSet.update(amplitude); // Update with the current amplitude
-            boxSet.draw(); // Draw the box set
+            boxSet.update(amplitude, bands); // Pass both amplitude and bands to update
+            boxSet.draw();
         }
     }
 }
