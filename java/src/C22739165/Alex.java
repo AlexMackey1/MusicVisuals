@@ -17,13 +17,13 @@ public class Alex {
 
         // Create BoxSet instances in a diamond shape
         // Top
-        boxSets.add(new BoxSet(visual, visual.width / 2, visual.height / 4, 20));
+        boxSets.add(new BoxSet(visual, visual.width / 2, visual.height / 4, 10));
         // Right
-        boxSets.add(new BoxSet(visual, 3 * visual.width / 4, visual.height / 2, 20));
+        boxSets.add(new BoxSet(visual, 3 * visual.width / 4, visual.height / 2, 10));
         // Bottom
-        boxSets.add(new BoxSet(visual, visual.width / 2, 3 * visual.height / 4, 20));
+        boxSets.add(new BoxSet(visual, visual.width / 2, 3 * visual.height / 4, 10));
         // Left
-        boxSets.add(new BoxSet(visual, visual.width / 4, visual.height / 2, 20));
+        boxSets.add(new BoxSet(visual, visual.width / 4, visual.height / 2, 10));
 
         //circles
         rotatingCircles = new RotatingCircles(visual, 10);

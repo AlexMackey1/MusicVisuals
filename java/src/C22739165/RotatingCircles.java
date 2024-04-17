@@ -5,7 +5,9 @@ import processing.core.PApplet;
 
 class RotatingCircles {
     Visual visual;
-    float a = 0; // Angle for rotation, used more subtly
+    float a = 0; // Angle for rotation, used for overall rotation
+    float axisAngleX = 0; // Angle for rotation axis movement on X
+    float axisAngleY = 0; // Angle for rotation axis movement on Y
     float numCircles; // Number of circles
     float[] bands; // Frequency bands data
 
@@ -24,23 +26,29 @@ class RotatingCircles {
         visual.pushMatrix();
         visual.translate(visual.width / 2, visual.height / 2);
 
+        // Update the axis rotation angles
+        axisAngleX += 0.01;
+        axisAngleY += 0.015;
+
         for (int i = 0; i < numCircles; i++) {
-            float angleOffset = PApplet.map(i, 0, numCircles - 1, 0, PApplet.PI); // Reduced rotation range
+            float angleOffset = PApplet.map(i, 0, numCircles - 1, 0, PApplet.TWO_PI);
             float bandValue = bands[i % bands.length];
-            // Further reduce the range of circle sizes for minimal variability
-            float circleSize = PApplet.map(bandValue, 0, 1, 30, 40);
+            float circleSize = PApplet.map(bandValue, 0, 1, 30, 40); // Keeping the size change minimal
             float gray = PApplet.map(i, 0, numCircles - 1, 0, 255);
-            float crazyAngle = a; // Use only a single slowly increasing angle for all circles
 
             visual.pushMatrix();
             visual.stroke(gray, 100, 255 - gray, 200);
             visual.noFill();
-            visual.rotateY(crazyAngle + angleOffset); // Simplified rotation only around Y-axis
+
+            // Apply rotations based on changing axes
+            visual.rotateX(axisAngleX + angleOffset); // Rotating around a dynamic X-axis
+            visual.rotateY(axisAngleY + angleOffset); // Rotating around a dynamic Y-axis
             visual.circle(0, 0, circleSize);
+
             visual.popMatrix();
         }
 
         visual.popMatrix();
-        a += 0.005; // Slow down the rotation increment
+        a += 0.005; // Continue to gradually increase the general rotation angle
     }
 }
