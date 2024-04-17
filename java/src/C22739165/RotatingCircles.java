@@ -5,7 +5,7 @@ import processing.core.PApplet;
 
 class RotatingCircles {
     Visual visual;
-    float a = 0; // Angle for rotation
+    float a = 0; // Angle for rotation, used more subtly
     float numCircles; // Number of circles
     float[] bands; // Frequency bands data
 
@@ -16,7 +16,6 @@ class RotatingCircles {
     }
 
     public void update(float[] bands) {
-        // Copy bands data for visualization
         System.arraycopy(bands, 0, this.bands, 0, PApplet.min(this.bands.length, bands.length));
     }
 
@@ -24,25 +23,24 @@ class RotatingCircles {
         visual.lights();
         visual.pushMatrix();
         visual.translate(visual.width / 2, visual.height / 2);
-    
+
         for (int i = 0; i < numCircles; i++) {
-            float angleOffset = PApplet.map(i, 0, numCircles - 1, 0, PApplet.TWO_PI);
+            float angleOffset = PApplet.map(i, 0, numCircles - 1, 0, PApplet.PI); // Reduced rotation range
             float bandValue = bands[i % bands.length];
-            float circleSize = PApplet.map(bandValue, 0, 1, 50, 300);
+            // Further reduce the range of circle sizes for minimal variability
+            float circleSize = PApplet.map(bandValue, 0, 1, 30, 40);
             float gray = PApplet.map(i, 0, numCircles - 1, 0, 255);
-            float crazyAngle = a + bandValue * 5;
-    
+            float crazyAngle = a; // Use only a single slowly increasing angle for all circles
+
             visual.pushMatrix();
             visual.stroke(gray, 100, 255 - gray, 200);
             visual.noFill();
-            visual.rotateY(crazyAngle + angleOffset);
-            visual.rotateX(crazyAngle / 2 + angleOffset * 2);
+            visual.rotateY(crazyAngle + angleOffset); // Simplified rotation only around Y-axis
             visual.circle(0, 0, circleSize);
             visual.popMatrix();
         }
-    
+
         visual.popMatrix();
-        a += 0.01;
+        a += 0.005; // Slow down the rotation increment
     }
-    
 }
