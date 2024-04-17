@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Alex {
     Visual visual;
     ArrayList<BoxSet> boxSets; // List of BoxSet objects
+    RotatingCircles rotatingCircles;
 
 
     public Alex(Visual visual) {
@@ -23,6 +24,9 @@ public class Alex {
         boxSets.add(new BoxSet(visual, visual.width / 2, 3 * visual.height / 4, 20));
         // Left
         boxSets.add(new BoxSet(visual, visual.width / 4, visual.height / 2, 20));
+
+        //circles
+        rotatingCircles = new RotatingCircles(visual, 10);
     }
 
     public void draw() {
@@ -42,6 +46,9 @@ public class Alex {
             boxSet.update(amplitude, bands); // Update with the current amplitude and frequency bands
             boxSet.draw(); // Draw the box set
         }
+
+        rotatingCircles.update(visual.getSmoothedBands());
+        rotatingCircles.draw(); // This will overlay the rotating circles on top of the boxes
     }
 }
 
