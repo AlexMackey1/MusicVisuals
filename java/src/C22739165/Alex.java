@@ -9,19 +9,26 @@ public class Alex {
     Visual visual;
     ArrayList<BoxSet> boxSets; // List of BoxSet objects
 
+
     public Alex(Visual visual) {
         this.visual = visual;
         boxSets = new ArrayList<BoxSet>();
 
-        // Example: Create two BoxSet instances at different positions
-        boxSets.add(new BoxSet(visual, visual.width / 3, visual.height / 2, 20));
-        boxSets.add(new BoxSet(visual, 2 * visual.width / 3, visual.height / 2, 20));
+        // Create BoxSet instances in a diamond shape
+        // Top
+        boxSets.add(new BoxSet(visual, visual.width / 2, visual.height / 4, 20));
+        // Right
+        boxSets.add(new BoxSet(visual, 3 * visual.width / 4, visual.height / 2, 20));
+        // Bottom
+        boxSets.add(new BoxSet(visual, visual.width / 2, 3 * visual.height / 4, 20));
+        // Left
+        boxSets.add(new BoxSet(visual, visual.width / 4, visual.height / 2, 20));
     }
-    
+
     public void draw() {
-        visual.background(0);
+        visual.background(0); // Set the background to black
         try {
-            visual.calculateFFT();
+            visual.calculateFFT(); // Perform FFT analysis
         } catch (VisualException e) {
             e.printStackTrace();
         }
@@ -32,8 +39,9 @@ public class Alex {
 
         // Update and draw each BoxSet with both amplitude and frequency bands
         for (BoxSet boxSet : boxSets) {
-            boxSet.update(amplitude, bands); // Pass both amplitude and bands to update
-            boxSet.draw();
+            boxSet.update(amplitude, bands); // Update with the current amplitude and frequency bands
+            boxSet.draw(); // Draw the box set
         }
     }
 }
+
