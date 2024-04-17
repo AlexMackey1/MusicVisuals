@@ -12,7 +12,8 @@ public class BohemianRhapsody extends Visual {
     SergeiAwesomeVisual sergei;
 
     public void settings() {
-        size(800, 600, P3D);
+        //size(800, 600, P3D);
+        fullScreen(P3D, SPAN);
     }
 
     public void setup() {
