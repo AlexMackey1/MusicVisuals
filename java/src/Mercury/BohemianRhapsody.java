@@ -12,13 +12,14 @@ public class BohemianRhapsody extends Visual {
     SergeiAwesomeVisual sergei;
 
     public void settings() {
-        size(800, 600, P3D);
+        //size(1000, 1000, P3D);
+        fullScreen(P3D);
     }
 
     public void setup() {
         startMinim();
         // Make sure the path is correct. It assumes the file is in the data folder.
-        loadAudio("java/data/QueenBohemianRhapsody.mp3");
+        loadAudio("java/data/Section3.mp3");
         getAudioPlayer().play();  // Start playing the audio for debugging
         colorMode(HSB);
         alex = new Alex(this); // Pass 'this' as the PApplet context
