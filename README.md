@@ -12,11 +12,10 @@ Student Number and Student Name: Alex Mackey - C22739165
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # IDEAS
-0:00 - 0:57
-0:57 - 1:24
-1:24 - 2:24
-2:24 - 2:37
-2:37 - 3:04
+0:00 - 0:16 
+0:16 - 1:57
+1:57 - 2:24
+2:24 - 3:04
 3:04 - 4:09
 4:09 - 5:59
 

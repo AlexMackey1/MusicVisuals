@@ -1,6 +1,8 @@
 package C22739165;
 
 import ie.tudublin.Visual;
+import ie.tudublin.VisualException;
+
 import java.util.ArrayList;
 
 public class Alex {
@@ -18,8 +20,17 @@ public class Alex {
     
     public void draw() {
         visual.background(0); // Set the background to black
-        visual.calculateAverageAmplitude();
-        float amplitude = visual.getSmoothedAmplitude();
+        visual.background(0);
+        try {
+            visual.calculateFFT(); // Perform FFT analysis
+        } catch (VisualException e) {
+            e.printStackTrace();
+        }
+        visual.calculateFrequencyBands(); // Calculate frequency bands
+        visual.calculateAverageAmplitude(); // Calculate amplitude
+        float[] bands = visual.getSmoothedBands(); // max 667
+        float amplitude = visual.getSmoothedAmplitude(); // max value is 0.233
+
 
         // Update and draw each BoxSet
         for (BoxSet boxSet : boxSets) {

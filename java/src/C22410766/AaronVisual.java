@@ -107,7 +107,7 @@ public class AaronVisual {
         }
 
         b += 0.01;  // Increment angle
-        if (b > visual.TWO_PI) {  // Reset 'a' to avoid overflow
+        if (b > visual.TWO_PI) {  // Reset 'b' to avoid overflow
             b = 0;
                 }
         // Draw each circle
