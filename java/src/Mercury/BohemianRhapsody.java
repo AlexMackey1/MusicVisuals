@@ -8,7 +8,7 @@ import C22483302.SergeiAwesomeVisual;
 import C22483302.SergeiAwesomeVisual2;
 
 public class BohemianRhapsody extends Visual {
-    int mode = 0;
+    int mode = 4;
     Alex alex;
     AaronVisual aaron;
     SergeiAwesomeVisual sergei;
@@ -48,7 +48,7 @@ public class BohemianRhapsody extends Visual {
 
     public void draw() {
 
-        if(getAudioPlayer().position() >= 0 && getAudioPlayer().position() <= 10)
+        if(getAudioPlayer().position() >= 16000 && getAudioPlayer().position() <= 16100)
         {
             mode = 0;
         }
@@ -61,14 +61,9 @@ public class BohemianRhapsody extends Visual {
             mode = 3;
         }
 
-        if(getAudioPlayer().position() >= 294000 && getAudioPlayer().position() <= 294100)
+        if(getAudioPlayer().position() >= 249000 && getAudioPlayer().position() <= 249100)
         {
             mode = 1;
-        }
-
-        if(getAudioPlayer().position() >= 359000 && getAudioPlayer().position() <= 359100)
-        {
-            mode = 5;
         }
 
         switch (mode) {
