@@ -15,7 +15,7 @@ public class start {
 
         float centerX = visual.width / 2;
         float centerY = visual.height / 2;
-        float angle = 0;5
+        float angle = (float) 0.5;
 
         angle += 0.01;
     
