@@ -4,12 +4,14 @@ import ie.tudublin.Visual;
 import C22739165.Alex;
 import C22410766.AaronVisual;
 import C22483302.SergeiAwesomeVisual;
+import C22483302.SergeiAwesomeVisual2;
 
 public class BohemianRhapsody extends Visual {
     int mode = 1;
     Alex alex;
     AaronVisual aaron;
     SergeiAwesomeVisual sergei;
+    SergeiAwesomeVisual2 sergei2;
 
     public void settings() {
         size(800, 600, P3D);
@@ -24,6 +26,7 @@ public class BohemianRhapsody extends Visual {
         alex = new Alex(this); // Pass 'this' as the PApplet context
         aaron = new AaronVisual(this);
         sergei = new SergeiAwesomeVisual(this);
+        sergei2 = new SergeiAwesomeVisual2(this);
     }
 
     public void keyPressed() {
@@ -48,7 +51,10 @@ public class BohemianRhapsody extends Visual {
                 aaron.draw();
                 break;
             case 2:
-                //sergei.draw();
+                sergei.draw();
+                break;
+            case 3:
+                sergei2.draw();
                 break;
             default:
                 background(0); // Default background
