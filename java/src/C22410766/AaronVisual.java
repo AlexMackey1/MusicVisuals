@@ -123,10 +123,10 @@ public class AaronVisual {
         }
 
         // Add new particles based on some condition (e.g., on beats)
-        int numParticlesToSpawn = (int) (amplitude * 150);  // Scale number of particles with amplitude
+        int numParticlesToSpawn = (int) (amplitude * 350);  // Scale number of particles with amplitude
         for (int i = 0; i < numParticlesToSpawn; i++) {
             float angle = visual.random(visual.TWO_PI);
-            float velocityFactor = visual.map(amplitude, 0.1f, 0.24f, 1, 5);  // Map the band amplitude to a useful velocity range
+            float velocityFactor = visual.map(amplitude, 0.1f, 0.24f, 1, 7);  // Map the band amplitude to a useful velocity range
             particles.add(new Particle(visual, 0, 0, radius/2, angle, velocityFactor));
         }
 
