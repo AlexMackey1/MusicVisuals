@@ -14,8 +14,7 @@ Student Number and Student Name: Alex Mackey - C22739165
 # IDEAS
 0:00 - 0:16 
 0:16 - 1:57
-1:57 - 2:24
-2:24 - 3:04
+1:57 - 3:04
 3:04 - 4:09
 4:09 - 5:59
 
