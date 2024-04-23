@@ -9,6 +9,7 @@ class BoxSet {
     int numBoxes;
     float angle = 0;
     float amplitude;
+    float colorR, colorG, colorB;
 
     BoxSet(Visual visual, float x, float y, int numBoxes) {
         this.visual = visual;
@@ -17,33 +18,42 @@ class BoxSet {
         this.numBoxes = numBoxes;
     }
 
-    public void update(float amplitude) {
+    public void update(float amplitude, float[] bands) {
         this.amplitude = amplitude;
+        if (bands.length >= 3) {
+            // Implementing gradient based on the band values
+            colorR = PApplet.map(bands[0], 0, 1, 200, 255);
+            colorG = PApplet.map(bands[1], 0, 1, 200, 255);
+            colorB = PApplet.map(bands[2], 0, 1, 200, 255);
+        }
     }
+    
 
     public void draw() {
         visual.pushMatrix();
         visual.translate(x, y);
+
+        // Ensure the rotation is continuous
+        angle = (angle + 0.05f) % PApplet.TWO_PI; // Smooth incremental rotation
+        visual.rotateY(angle);
+        visual.rotateX(angle / 2);
+
         for (int i = 0; i < numBoxes; i++) {
             visual.pushMatrix();
-            float spacing = 360.0f / numBoxes;
-            float currentAngle = PApplet.radians(spacing * i + angle);
+            float spacing = PApplet.TWO_PI / numBoxes;
+            float currentAngle = spacing * i;
 
-            // Calculate color based on amplitude
-            float r = PApplet.map(amplitude, 0, 1, 100, 255); // Red from low to high intensity
-            float g = PApplet.map(amplitude, 0, 1, 255, 100); // Green from high to low intensity
-            float b = 255 - r; // Blue inversely related to red
+            visual.stroke(colorR, colorG, colorB);
+            visual.fill(colorR, colorG, colorB, 150); // Keep the opacity subtle
 
-            visual.stroke(r, g, b);
-            visual.fill(r, g, b, 150); // Semi-transparent fill
-
-            visual.rotateX(currentAngle);
             visual.rotateY(currentAngle);
-            float boxSize = 50 + (amplitude * 200);
+            visual.rotateX(currentAngle / 2);
+            // Dynamically increase the size based on the amplitude
+            float boxSize = 50 + (300 * amplitude); // Base size + scaled with amplitude
+            visual.translate(50, 0, 0); // Position adjustment for design consistency
             visual.box(boxSize);
             visual.popMatrix();
         }
         visual.popMatrix();
-        angle += 0.5; // Rotate gradually
     }
 }
