@@ -31,6 +31,8 @@ public class Alex {
 
     public void draw() {
         visual.background(0); // Set the background to black
+        float intensity = visual.getSmoothedAmplitude();
+        visual.background(10 + intensity * 245); // Background changes with amplitude
         try {
             visual.calculateFFT(); // Perform FFT analysis
         } catch (VisualException e) {

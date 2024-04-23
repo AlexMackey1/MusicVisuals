@@ -21,12 +21,13 @@ class BoxSet {
     public void update(float amplitude, float[] bands) {
         this.amplitude = amplitude;
         if (bands.length >= 3) {
-            // Maintain the color transition effects
-            colorR = 200 + 55 * PApplet.sin(PApplet.radians(bands[0] * 360));
-            colorG = 200 + 55 * PApplet.sin(PApplet.radians(bands[1] * 360));
-            colorB = 200 + 55 * PApplet.sin(PApplet.radians(bands[2] * 360));
+            // Implementing gradient based on the band values
+            colorR = PApplet.map(bands[0], 0, 1, 200, 255);
+            colorG = PApplet.map(bands[1], 0, 1, 200, 255);
+            colorB = PApplet.map(bands[2], 0, 1, 200, 255);
         }
     }
+    
 
     public void draw() {
         visual.pushMatrix();

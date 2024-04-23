@@ -16,7 +16,7 @@ class RotatingCircles {
     }
 
     public void update(float[] bands) {
-        System.arraycopy(bands, 0, this.bands, 0, PApplet.min(this.bands.length, bands.length));
+        System.arraycopy(bands, 0, this.bands, 0, Math.min(this.bands.length, bands.length));
     }
 
     public void draw() {
@@ -26,8 +26,9 @@ class RotatingCircles {
 
         for (int i = 0; i < numCircles; i++) {
             float bandValue = bands[i % bands.length];
-            // Further reduce the base size and dynamic range to make the circles smaller
-            float circleSize = 20 + 20 * bandValue; // Smaller base size and amplitude effect
+            // Adjust the base size and dynamic range, and limit the maximum size of the circles
+            float circleSize = PApplet.map(bandValue, 0, 1, 20, 50); // Circle size now ranges from 20 to 50 based on bandValue
+
             float hue = PApplet.map(i, 0, numCircles, 0, 255); // Color mapped across the spectrum
 
             visual.pushMatrix();
