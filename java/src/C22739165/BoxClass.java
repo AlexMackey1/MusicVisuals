@@ -9,7 +9,7 @@ class BoxSet {
     int numBoxes;
     float angle = 0;
     float amplitude;
-    float[] colorShift;
+    float colorR, colorG, colorB;
 
     // Constructor to initialize a BoxSet object
     BoxSet(Visual visual, float x, float y, int numBoxes) {
@@ -17,31 +17,20 @@ class BoxSet {
         this.x = x;
         this.y = y;
         this.numBoxes = numBoxes;
-        this.colorShift = new float[numBoxes]; // Initialize color shift array
-
-        // Distribute hues evenly across the spectrum for each box
-        for (int i = 0; i < numBoxes; i++) {
-            colorShift[i] = (360 / numBoxes) * i; 
-        }
     }
 
-    // Update method to adjust box colors based on amplitude and frequency bands
     public void update(float amplitude, float[] bands) {
         this.amplitude = amplitude;
-
-        // Cycle through colors for each box
-        for (int i = 0; i < numBoxes; i++) {
-            // Slowly increment the hue to cycle through colors
-            colorShift[i] += 1;
-            if (colorShift[i] > 360) {
-                colorShift[i] = 0; // Reset hue after completing a full cycle
-            }
+        if (bands.length >= 3) {
+            // Implementing gradient based on the band values
+            colorR = PApplet.map(bands[0], 0, 1, 200, 255);
+            colorG = PApplet.map(bands[1], 0, 1, 200, 255);
+            colorB = PApplet.map(bands[2], 0, 1, 200, 255);
         }
     }
 
     // Draw method to render the BoxSet object
     public void draw() {
-        visual.colorMode(Visual.HSB, 360, 100, 100, 100); // Use HSB for vibrant, full-spectrum colors
         visual.pushMatrix();
         visual.translate(x, y);
 
@@ -59,8 +48,8 @@ class BoxSet {
             float boxSize = 50 + amplitude * 100; // Dynamically change the size based on amplitude
 
             // Set stroke and fill colors for the box
-            visual.stroke(colorShift[i], 100, 100);
-            visual.fill(colorShift[i], 100, 100, 50); // Use a semi-transparent fill for depth
+            visual.stroke(colorR, colorG, colorB);
+            visual.fill(colorR, colorG, colorB, 150); // Keep the opacity subtle
 
             // Apply rotation and translation transformations to each box
             visual.rotateY(currentAngle);
