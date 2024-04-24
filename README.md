@@ -4,29 +4,34 @@ Student Number and Student Name: Alex Mackey - C22739165
 								 Aaron Connolly - C22410766
 								 Sergei Larionov - C22483302
 
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
-
-# IDEAS
-0:00 - 0:16 Intro
-0:16 - 1:57 Alex
-1:57 - 3:04 Sergei
-3:04 - 4:09 Sergei
-4:09 - 5:59 Aaron
-
 
 # Description of the assignment
-visuals of Bohemian Rhapsody 
+This is our visualization of Bohemian Rhapsody by Queen. We felt that this song chnages drastcially minute to minute so
+therefore it would be the best choice to do a visualization project on. Due to all of the chnages we would be able to showcase
+everything that we learnt as the song transitioned between different beats, moods and speed etc.
 
 # Instructions
-merge practice
-# How it works
+Our song changes at specific intervals that we chose below.
 
-# What I am most proud of in the assignment
+0:00 - 0:16 Intro (mode 4)
+0:16 - 1:57 Alex  (mode 0)
+1:57 - 3:04 Sergei (mode 3)
+3:04 - 4:09 Sergei (mode 2)
+4:09 - 5:59 Aaron  (mode 1)
+
+Apart from that you can use "p" to pause the audion and you can use the number keys above to manually chnage between the visualizations.
+
+### How it works
+# Alex
+My code used the OOP principles of encapsulation and inheritance. The majority of the code is the "BoxClass" and "RotatingCircles" classes. These are then called on in "Alex" class which is my visulation. It comprises of 4 boxsets from the boxset class, that rotate at different speeds and change colours based on amplitude and frquency bands. There a
+
+# Sergei
+
+
+# Aaron
+
+
+# What we are most proud of in the assignment
 
 # Markdown Tutorial
 
