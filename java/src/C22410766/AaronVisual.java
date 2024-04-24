@@ -11,17 +11,21 @@ public class AaronVisual {
     Visual visual;
     ArrayList<Particle> particles = new ArrayList<>();
     ArrayList<ArrayList<Lines>> lineSets = new ArrayList<>();
+    int[] displayTimers; // Array to hold the display timers for each band
     
     
     int len, linesPerBand = 20;
     float amplitude, centerX, centerY;
     float[] bands;
     float previousAmplitude;
+    int flashDuration;
     
 
     public AaronVisual(Visual visual) {
         this.visual = visual;
         visual.startMinim();
+        this.displayTimers = new int[visual.getSmoothedBands().length]; // Initialize the timers
+        
 
         this.centerX = visual.width / 2;
         this.centerY = visual.height / 2;
@@ -73,16 +77,21 @@ public class AaronVisual {
             b = 0;
                 }
 
-        if (amplitude - previousAmplitude > 0.011) {  // Simple beat detection
-            // Trigger a special effect
-            visual.fill(360, 100, 100);
-            visual.rect(0, 0, visual.width, visual.height);  // Flash the screen
+
+        if (amplitude - previousAmplitude > 0.011) {
+            flashDuration = 60;  // Set the duration for 1 second, assuming 60 fps
         }
         previousAmplitude = amplitude;
-        visual.println(amplitude);
+    
+        if (flashDuration > 0) {
+            
+            lines();
+            flashDuration--;  // Decrease the timer
+        }
+
 
         particles(radius);
-        lines();
+        
     }
 
     public void particles(float radius) {
@@ -99,7 +108,7 @@ public class AaronVisual {
 
         // Add new particles based on some condition (e.g., on beats)
         for (int i = 0; i < numParticlesToSpawn; i++) {
-            float angle = visual.random(visual.TWO_PI);
+            float angle = visual.random(Visual.TWO_PI);
             float velocityFactor = Visual.map(amplitude, 0.1f, 0.24f, 1, 7);  // Map the band amplitude to a useful velocity range
             particles.add(new Particle(visual, 0, 0, radius/2, angle, velocityFactor));
         }
@@ -108,18 +117,18 @@ public class AaronVisual {
     public void lines() {
         int maxBandIndex = 0;
         float maxBandValue = 0;
-        float[] bandLengthsstart = {100, 120, 140, 160, 180, 200, 220, 240, 260}; // Example specific lengths for each band
-        float[] bandLengthsend = {100, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600}; // Example specific lengths for each band
+        float[] bandLengthsstart = {300, 220, 440, 160, 180, 200, 320, 240, 260}; // Example specific lengths for each band
+        float[] bandLengthsend = {100, 200, 200, 250, 300, 350, 400, 450, 500}; // Example specific lengths for each band
 
-        int[] bandColors = {visual.color(255, 255, 125),   // Red
+        int[] bandColors = {visual.color(255, 155, 125),   // Red
                             visual.color(20, 165, 120), // Orange
-                            visual.color(40, 255, 125), // Yellow
-                            visual.color(100, 255, 125),   // Green
+                            visual.color(40, 155, 125), // Yellow
+                            visual.color(100, 155, 125),   // Green
                             visual.color(150, 55, 125),   // Blue
-                            visual.color(195, 255, 120),  // Indigo
-                            visual.color(218, 230, 128),// Violet
-                            visual.color(225, 230, 125), // Magenta
-                            visual.color(255, 192, 123) // Pink
+                            visual.color(195, 55, 120),  // Indigo
+                            visual.color(218, 30, 128),// Violet
+                            visual.color(225, 30, 125), // Magenta
+                            visual.color(255, 92, 123) // Pink
         };
 
         for (int i = 0; i < len; i++) {
@@ -141,10 +150,22 @@ public class AaronVisual {
         }
         
 
-        // Draw only the lines of the band with the highest current value
+        // Update the timer for the highest amplitude band
+        if (maxBandIndex != -1) {
+            displayTimers[maxBandIndex] = 20; // Set the duration for 1 second, assuming 60 fps
+        }
+
+        // Decrease all timers
+        for (int i = 0; i < displayTimers.length; i++) {
+            if (displayTimers[i] > 0) {
+                displayTimers[i]--;
+            }
+        }
+
+        // Draw the lines for bands with active timers
         for (int i = 0; i < len; i++) {
-            for (Lines line : lineSets.get(i)) {
-                if (i == maxBandIndex) {
+            if (displayTimers[i] > 0 && Math.random() > 0.5) { // Check if the timer is still active
+                for (Lines line : lineSets.get(i)) {
                     line.display();
                 }
             }
