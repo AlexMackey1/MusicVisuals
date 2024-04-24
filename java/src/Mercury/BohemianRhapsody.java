@@ -8,7 +8,7 @@ import C22483302.SergeiAwesomeVisual;
 import C22483302.SergeiAwesomeVisual2;
 
 public class BohemianRhapsody extends Visual {
-    int mode = 4;
+    int mode = 1;
     Alex alex;
     AaronVisual aaron;
     SergeiAwesomeVisual sergei;

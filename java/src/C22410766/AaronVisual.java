@@ -117,8 +117,8 @@ public class AaronVisual {
     public void lines() {
         int maxBandIndex = 0;
         float maxBandValue = 0;
-        float[] bandLengthsstart = {300, 220, 440, 160, 180, 200, 320, 240, 260}; // Example specific lengths for each band
-        float[] bandLengthsend = {100, 200, 200, 250, 300, 350, 400, 450, 500}; // Example specific lengths for each band
+        float[] bandLengthsstart = {300, 220, 440, 260, 380, 200, 320, 240, 260}; // Example specific lengths for each band
+        float[] bandLengthsend = {350, 400, 2000, 250, 300, 3500, 400, 450, 500}; // Example specific lengths for each band
 
         int[] bandColors = {visual.color(255, 155, 125),   // Red
                             visual.color(20, 165, 120), // Orange
