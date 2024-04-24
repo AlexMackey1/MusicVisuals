@@ -11,6 +11,7 @@ public class SergeiAwesomeVisual2 {
     // center coordinates and size of the pyramid base
     float baseSize = 200; 
 
+
     // angle variables for triangle pyramid positions
     float angle1 = 0;
     float angle2 = Visual.TWO_PI / 3; 
@@ -28,8 +29,6 @@ public class SergeiAwesomeVisual2 {
 
     public void draw() {
         visual.background(0);
-
-        visual.noFill();
     
         try {
             visual.calculateFFT();

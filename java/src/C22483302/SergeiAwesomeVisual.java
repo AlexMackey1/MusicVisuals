@@ -18,8 +18,7 @@ public class SergeiAwesomeVisual{
 
 public void draw() {
     visual.background(0);
-
-    visual.noFill();
+    visual.fill(0);
 
     try {
         visual.calculateFFT();
