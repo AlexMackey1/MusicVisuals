@@ -22,6 +22,7 @@ public class start {
         // Set the rotation angle
         visual.rotate(angle);
         
+        visual.fill(255);
         visual.textSize(50);
         visual.text("OOP Visual assignment", centerX-200, centerY);
         visual.textSize(30);
