@@ -19,8 +19,7 @@ public class SergeiAwesomeVisual{
 public void draw() {
     visual.background(0);
 
-    visual.stroke(0);  // Default to white or another neutral color
-    visual.fill(0);    // Default fill to prevent unwanted colors
+    visual.noFill();
 
     try {
         visual.calculateFFT();

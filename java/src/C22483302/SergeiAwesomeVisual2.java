@@ -27,7 +27,9 @@ public class SergeiAwesomeVisual2 {
     }
 
     public void draw() {
-        visual.background(0); 
+        visual.background(0);
+
+        visual.noFill();
     
         try {
             visual.calculateFFT();
@@ -72,8 +74,6 @@ public class SergeiAwesomeVisual2 {
         // eye position above pyramid
         eyeX = visual.width / 2;
         eyeY = centerY - baseSize / 2 - eyeSize; 
-    
-        float[] bands = visual.getSmoothedBands();
     
         float hueWavyLandscape = visual.map(amplitude, 0.15f, 0.3f, 100, 255);
 
@@ -123,7 +123,6 @@ public class SergeiAwesomeVisual2 {
     }
 
     private void drawEye() {
-    
         // draw eye
         visual.ellipseMode(Visual.CENTER);
         visual.ellipse(eyeX, eyeY, eyeSize, eyeSize);
@@ -140,8 +139,6 @@ public class SergeiAwesomeVisual2 {
         // draw pupil
         visual.ellipse(pupilX, pupilY, pupilSize, pupilSize);
     }
-    
-    
     
     private void drawTriangle(float x1, float y1, float z1, 
                               float x2, float y2, float z2, 
