@@ -54,11 +54,11 @@ public class BohemianRhapsody extends Visual {
         }
         if(getAudioPlayer().position() >=117000  && getAudioPlayer().position() <= 117100)
         {
-            mode = 2;
+            mode = 3;
         }
         if(getAudioPlayer().position() >= 184000 && getAudioPlayer().position() <= 184100)
         {
-            mode = 3;
+            mode = 2;
         }
 
         if(getAudioPlayer().position() >= 249000 && getAudioPlayer().position() <= 249100)
