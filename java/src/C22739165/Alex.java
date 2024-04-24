@@ -30,27 +30,33 @@ public class Alex {
     }
 
     public void draw() {
-        visual.background(0); // Set the background to black
+        // Set the background to black
+        visual.background(0); 
+    
+        // Adjust background color based on audio amplitude
         float intensity = visual.getSmoothedAmplitude();
-        visual.background(10 + intensity * 245); // Background changes with amplitude
+        visual.background(10 + intensity * 245); 
+    
         try {
             visual.calculateFFT(); // Perform FFT analysis
         } catch (VisualException e) {
             e.printStackTrace();
         }
+    
         visual.calculateFrequencyBands();
         visual.calculateAverageAmplitude();
         float[] bands = visual.getSmoothedBands();
         float amplitude = visual.getSmoothedAmplitude();
-
+    
         // Update and draw each BoxSet with both amplitude and frequency bands
         for (BoxSet boxSet : boxSets) {
-            boxSet.update(amplitude, bands); // Update with the current amplitude and frequency bands
+            boxSet.update(amplitude, bands); // Update with current audio data
             boxSet.draw(); // Draw the box set
         }
-
+    
         rotatingCircles.update(visual.getSmoothedBands());
-        rotatingCircles.draw(); // This will overlay the rotating circles on top of the boxes
+        rotatingCircles.draw(); // Overlay rotating circles on top of the boxes
     }
+    
 }
 

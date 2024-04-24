@@ -11,6 +11,7 @@ class BoxSet {
     float amplitude;
     float colorR, colorG, colorB;
 
+    // Constructor to initialize a BoxSet object
     BoxSet(Visual visual, float x, float y, int numBoxes) {
         this.visual = visual;
         this.x = x;
@@ -27,33 +28,36 @@ class BoxSet {
             colorB = PApplet.map(bands[2], 0, 1, 200, 255);
         }
     }
-    
 
+    // Draw method to render the BoxSet object
     public void draw() {
         visual.pushMatrix();
         visual.translate(x, y);
 
-        // Ensure the rotation is continuous
-        angle = (angle + 0.05f) % PApplet.TWO_PI; // Smooth incremental rotation
+        // Rotation controlled by amplitude
+        angle += PApplet.map(amplitude, 0, 1, 0, 5);
         visual.rotateY(angle);
         visual.rotateX(angle / 2);
 
+        // Draw each box in the BoxSet
         for (int i = 0; i < numBoxes; i++) {
             visual.pushMatrix();
             float spacing = PApplet.TWO_PI / numBoxes;
             float currentAngle = spacing * i;
 
+            float boxSize = 50 + amplitude * 100; // Dynamically change the size based on amplitude
+
+            // Set stroke and fill colors for the box
             visual.stroke(colorR, colorG, colorB);
             visual.fill(colorR, colorG, colorB, 150); // Keep the opacity subtle
 
+            // Apply rotation and translation transformations to each box
             visual.rotateY(currentAngle);
             visual.rotateX(currentAngle / 2);
-            // Dynamically increase the size based on the amplitude
-            float boxSize = 50 + (300 * amplitude); // Base size + scaled with amplitude
-            visual.translate(50, 0, 0); // Position adjustment for design consistency
-            visual.box(boxSize);
-            visual.popMatrix();
+            visual.translate(50, 0, 0);
+            visual.box(boxSize); // Draw the box
+            visual.popMatrix(); // Restore previous transformation state
         }
-        visual.popMatrix();
+        visual.popMatrix(); // Restore original transformation state
     }
 }
