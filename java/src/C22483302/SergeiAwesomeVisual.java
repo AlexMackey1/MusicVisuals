@@ -14,7 +14,7 @@ public class SergeiAwesomeVisual{
 
     float b = 0;                 // angle of rotation
     float offset = (float) (visual.PI/24.0);  // angle offset between boxes
-    int num = 60;
+    int num = 60;                       // num of shapes
 
 public void draw() {
     visual.background(0);
