@@ -117,18 +117,18 @@ public class AaronVisual {
     public void lines() {
         int maxBandIndex = 0;
         float maxBandValue = 0;
-        float[] bandLengthsstart = {100, 120, 140, 160, 180, 200, 220, 240, 260}; // Example specific lengths for each band
+        float[] bandLengthsstart = {300, 220, 440, 160, 180, 200, 320, 240, 260}; // Example specific lengths for each band
         float[] bandLengthsend = {100, 200, 200, 250, 300, 350, 400, 450, 500}; // Example specific lengths for each band
 
-        int[] bandColors = {visual.color(255, 255, 125),   // Red
+        int[] bandColors = {visual.color(255, 155, 125),   // Red
                             visual.color(20, 165, 120), // Orange
-                            visual.color(40, 255, 125), // Yellow
-                            visual.color(100, 255, 125),   // Green
+                            visual.color(40, 155, 125), // Yellow
+                            visual.color(100, 155, 125),   // Green
                             visual.color(150, 55, 125),   // Blue
-                            visual.color(195, 255, 120),  // Indigo
-                            visual.color(218, 230, 128),// Violet
-                            visual.color(225, 230, 125), // Magenta
-                            visual.color(255, 192, 123) // Pink
+                            visual.color(195, 55, 120),  // Indigo
+                            visual.color(218, 30, 128),// Violet
+                            visual.color(225, 30, 125), // Magenta
+                            visual.color(255, 92, 123) // Pink
         };
 
         for (int i = 0; i < len; i++) {
@@ -164,7 +164,7 @@ public class AaronVisual {
 
         // Draw the lines for bands with active timers
         for (int i = 0; i < len; i++) {
-            if (displayTimers[i] > 0) { // Check if the timer is still active
+            if (displayTimers[i] > 0 && Math.random() > 0.5) { // Check if the timer is still active
                 for (Lines line : lineSets.get(i)) {
                     line.display();
                 }
