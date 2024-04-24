@@ -9,32 +9,37 @@ class BoxSet {
     int numBoxes;
     float angle = 0;
     float amplitude;
-    float colorR, colorG, colorB;
+    float[] colorShift;
 
     BoxSet(Visual visual, float x, float y, int numBoxes) {
         this.visual = visual;
         this.x = x;
         this.y = y;
         this.numBoxes = numBoxes;
+        this.colorShift = new float[numBoxes]; // Initialize color shift array
+        for (int i = 0; i < numBoxes; i++) {
+            colorShift[i] = (360 / numBoxes) * i; // Distribute hues evenly across the spectrum
+        }
     }
 
     public void update(float amplitude, float[] bands) {
         this.amplitude = amplitude;
-        if (bands.length >= 3) {
-            // Implementing gradient based on the band values
-            colorR = PApplet.map(bands[0], 0, 1, 200, 255);
-            colorG = PApplet.map(bands[1], 0, 1, 200, 255);
-            colorB = PApplet.map(bands[2], 0, 1, 200, 255);
+        for (int i = 0; i < numBoxes; i++) {
+            // Slowly increment the hue to cycle through colors
+            colorShift[i] += 1;
+            if (colorShift[i] > 360) {
+                colorShift[i] = 0; // Reset hue after completing a full cycle
+            }
         }
     }
-    
 
     public void draw() {
+        visual.colorMode(Visual.HSB, 360, 100, 100, 100); // Use HSB for vibrant, full-spectrum colors
         visual.pushMatrix();
         visual.translate(x, y);
 
-        // Ensure the rotation is continuous
-        angle = (angle + 0.05f) % PApplet.TWO_PI; // Smooth incremental rotation
+        // Rotation controlled by mouse position or audio triggers
+        angle += PApplet.map(amplitude, 0, 1, 0, 5);
         visual.rotateY(angle);
         visual.rotateX(angle / 2);
 
@@ -43,14 +48,15 @@ class BoxSet {
             float spacing = PApplet.TWO_PI / numBoxes;
             float currentAngle = spacing * i;
 
-            visual.stroke(colorR, colorG, colorB);
-            visual.fill(colorR, colorG, colorB, 150); // Keep the opacity subtle
+            float boxSize = 50 + amplitude * 100; // Dynamically change the size
+
+            // Use vibrant rainbow colors
+            visual.stroke(colorShift[i], 100, 100);
+            visual.fill(colorShift[i], 100, 100, 50); // Use a semi-transparent fill for depth
 
             visual.rotateY(currentAngle);
             visual.rotateX(currentAngle / 2);
-            // Dynamically increase the size based on the amplitude
-            float boxSize = 50 + (300 * amplitude); // Base size + scaled with amplitude
-            visual.translate(50, 0, 0); // Position adjustment for design consistency
+            visual.translate(50, 0, 0);
             visual.box(boxSize);
             visual.popMatrix();
         }
