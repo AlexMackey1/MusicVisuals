@@ -1,8 +1,11 @@
 # Music Visualiser Project
 
-Student Number and Student Name: Alex Mackey - C22739165	
-								 Aaron Connolly - C22410766
-								 Sergei Larionov - C22483302
+| Name | Student Number |
+|-----------|-----------|
+| Alex Mackey | C22739165 |
+| Sergei Larionov | C22483302 |
+| Aaron Connolly | C22410766 |
+
 
 
 # Description of the assignment
@@ -38,7 +41,7 @@ My code used the OOP principles of encapsulation and inheritance. The majority o
 
 
 # What we are most proud of in the assignment
-We are most proud of using everything we learned this year to create a music visualization that uses OOP principles, primarily encapsulation and inheritance. We are proud of how the visual turned out and the way that the visualization came together. We like how the visuals start of pretty tame and calm just like the song does. This
+We are most proud of using everything we learned this year to create a music visualization that uses OOP principles, primarily encapsulation and inheritance. We are proud of how the visual turned out and the way that the visualization came together. We like how the visuals start of quite tame and calm just like the song does. Then when the tempo and beat get more dramatic so do the visuals which is only fitting for a song like "Bohemian Rhapsody". 
 
 # Markdown Tutorial
 
