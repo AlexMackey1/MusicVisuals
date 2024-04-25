@@ -25,6 +25,12 @@ Apart from that you can use "p" to pause the audion and you can use the number k
 # Alex
 My code used the OOP principles of encapsulation and inheritance. The majority of the code is the "BoxClass" and "RotatingCircles" classes. These are then called on in "Alex" class which is my visulation. It comprises of 4 boxsets from the Boxclass class, that rotate at different speeds and change colours based on amplitude and frquency bands. These box sets have a set position within the visual. The RotatingCircles class draws several circles that each correspond to a different frequency band. The size of the circles and the colours are mapped based on the frquency bands. The circles then swirl around somewhat passively but this leads to some very cool effects at time. The "Alex" class calls on the circle and box classes and visualises them on the screen. It also calculated the Fast Fourier Transform which calculates all the different frequency bands.
 
+![An image](java/data/images/AlexImg1.png)
+
+![An image](java/data/images/AlexImg2.png)
+
+![An image](java/data/images/AlexImg3.png)
+
 # Sergei
 
 
@@ -32,6 +38,7 @@ My code used the OOP principles of encapsulation and inheritance. The majority o
 
 
 # What we are most proud of in the assignment
+We are most proud of using everything we learned this year to create a music visualization that uses OOP principles, primarily encapsulation and inheritance. We are proud of how the visual turned out and the way that the visualization came together. We like how the visuals start of pretty tame and calm just like the song does. This
 
 # Markdown Tutorial
 
