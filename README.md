@@ -10,7 +10,7 @@
 
 # Description of the assignment
 This is our visualization of Bohemian Rhapsody by Queen. We felt that this song chnages drastcially minute to minute so
-therefore it would be the best choice to do a visualization project on. Due to all of the chnages we would be able to showcase
+therefore it would be the best choice to do a visualization project on. Due to all of the chnanges we would be able to showcase
 everything that we learnt as the song transitioned between different beats, moods and speeds etc.
 
 # Instructions
@@ -24,7 +24,7 @@ Our song changes at specific intervals that we chose below.
 | 3:04 - 4:09 | Sergei | 2 |
 | 4:09 - 5:59 | Aaron | 1 |
 
-Apart from that you can use "p" to pause the audion and you can use the number keys above to manually chnage between the visualizations.
+Apart from that you can use "p" to pause the audio and you can use the number keys above to manually change between the visualizations.
 
 ### How it works
 # Alex
@@ -37,7 +37,14 @@ My code used the OOP principles of encapsulation and inheritance. The majority o
 ![An image](java/data/images/AlexImg3.png)
 
 # Sergei
+The first visual consists of multiple shapes, boxes, spheres and cylinders which spin and orbit at differnet speeds based on the amplitude, each shape has their own segment using the frequency bands which allows them to change differently based on the frequency which gives it an orchestra feeling which matches the part of the song it plays during. The colors are also based on the amplitude giving it an rgb effect. The shapes are placed using translate and an increment in the angle to give it a eplise shape.
 
+The second visual consists of a spinning pyramid with a floating eye above and a wavy landscape beneath. The outer eye is created using an elipse and the pupil has a pulsing effect which is from using the map feature and the amplitude. It also follows the mouse cursor by mapping the coordinates of the cursor and adjusting the eye size. The pyramids rotation and visual dynamics are achieved through continuous updates to the vertex positions (angle1, angle2, angle3) based on the amplitude. The wavy landscape is generated using the noise and map feature to create dynamic wave patterns across horizontal sections of the screen. Each wave's height is influenced by the audio amplitude giving it a wavy/hilly look. The color of the landscape is also based on the amplitude leaving it red at its quietist moments and blue during the loudest moments.
+
+![An image](java/data/images/Serg1.png)
+![An image](java/data/images/Serg2.png)
+![An image](java/data/images/Serg3.png)
+![An image](java/data/images/Serg4.png)
 
 # Aaron
 
