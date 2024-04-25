@@ -8,7 +8,7 @@ Student Number and Student Name: Alex Mackey - C22739165
 # Description of the assignment
 This is our visualization of Bohemian Rhapsody by Queen. We felt that this song chnages drastcially minute to minute so
 therefore it would be the best choice to do a visualization project on. Due to all of the chnages we would be able to showcase
-everything that we learnt as the song transitioned between different beats, moods and speed etc.
+everything that we learnt as the song transitioned between different beats, moods and speeds etc.
 
 # Instructions
 Our song changes at specific intervals that we chose below.
@@ -23,7 +23,7 @@ Apart from that you can use "p" to pause the audion and you can use the number k
 
 ### How it works
 # Alex
-My code used the OOP principles of encapsulation and inheritance. The majority of the code is the "BoxClass" and "RotatingCircles" classes. These are then called on in "Alex" class which is my visulation. It comprises of 4 boxsets from the boxset class, that rotate at different speeds and change colours based on amplitude and frquency bands. There a
+My code used the OOP principles of encapsulation and inheritance. The majority of the code is the "BoxClass" and "RotatingCircles" classes. These are then called on in "Alex" class which is my visulation. It comprises of 4 boxsets from the Boxclass class, that rotate at different speeds and change colours based on amplitude and frquency bands. These box sets have a set position within the visual. The RotatingCircles class draws several circles that each correspond to a different frequency band. The size of the circles and the colours are mapped based on the frquency bands. The circles then swirl around somewhat passively but this leads to some very cool effects at time. The "Alex" class calls on the circle and box classes and visualises them on the screen. It also calculated the Fast Fourier Transform which calculates all the different frequency bands.
 
 # Sergei
 
