@@ -16,11 +16,13 @@ everything that we learnt as the song transitioned between different beats, mood
 # Instructions
 Our song changes at specific intervals that we chose below.
 
-0:00 - 0:16 Intro (mode 4)
-0:16 - 1:57 Alex  (mode 0)
-1:57 - 3:04 Sergei (mode 3)
-3:04 - 4:09 Sergei (mode 2)
-4:09 - 5:59 Aaron  (mode 1)
+| TimeStamp | Visual | Mode |
+|-----------|-----------|-----------|
+| 0:00 - 0:16 |Intro | 4 |
+| 0:16 - 1:57 | Alex | 0 |
+| 1:57 - 3:04 | Sergei | 3 |
+| 3:04 - 4:09 | Sergei | 2 |
+| 4:09 - 5:59 | Aaron | 1 |
 
 Apart from that you can use "p" to pause the audion and you can use the number keys above to manually chnage between the visualizations.
 
