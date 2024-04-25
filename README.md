@@ -46,7 +46,7 @@ My code used the OOP principles of encapsulation and inheritance. The majority o
 We are most proud of using everything we learned this year to create a music visualization that uses OOP principles, primarily encapsulation and inheritance. We are proud of how the visual turned out and the way that the visualization came together. We like how the visuals start of quite tame and calm just like the song does. Then when the tempo and beat get more dramatic so do the visuals which is only fitting for a song like "Bohemian Rhapsody". 
 
 # Please see our youtube video below
-[![YouTube](https://www.youtube.com/watch?v=2o4Mb21h-a0&list=WL&index=77)](https://www.youtube.com/watch?v=2o4Mb21h-a0&list=WL&index=77)
+[![YouTube](https://www.youtube.com/watch?v=2o4Mb21h-a0&list=WL&index=77/0.jpg)](https://www.youtube.com/watch?v=2o4Mb21h-a0&list=WL&index=77)
 
 
 # Markdown Tutorial
