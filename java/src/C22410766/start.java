@@ -19,7 +19,7 @@ public class start {
         float centerY = visual.height / 2;
 
         // Pulsing effect by changing the text size using a sinusoidal function
-        float pulse = visual.abs(visual.sin(a)) * 10;  // Multiplier determines the scale of pulse
+        float pulse = Visual.abs(Visual.sin(a)) * 10;  // Multiplier determines the scale of pulse
 
         visual.fill(255);  // White color text
         visual.textAlign(Visual.CENTER, Visual.CENTER);  // Center the text alignment
@@ -33,8 +33,5 @@ public class start {
         visual.text("by Aaron, Alex, Sergei", centerX, centerY + 30);  // Adjust position as needed
 
         a += 0.05;  // Control the speed of the pulsing
-        if (a > Visual.TWO_PI) {  // Reset 'a' to avoid overflow
-            a = 0;
-        }
     }
 }

@@ -8,7 +8,7 @@ import C22483302.SergeiAwesomeVisual;
 import C22483302.SergeiAwesomeVisual2;
 
 public class BohemianRhapsody extends Visual {
-    int mode = 1;
+    int mode = 4;
     Alex alex;
     AaronVisual aaron;
     SergeiAwesomeVisual sergei;
@@ -23,7 +23,7 @@ public class BohemianRhapsody extends Visual {
     public void setup() {
         startMinim();
         // Make sure the path is correct. It assumes the file is in the data folder.
-        loadAudio("java/data/QueenBohemianRhapsody.mp3");
+        loadAudio("java/data/Section3.mp3");
         getAudioPlayer().play();  // Start playing the audio for debugging
         colorMode(HSB);
         alex = new Alex(this); // Pass 'this' as the PApplet context

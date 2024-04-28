@@ -47,7 +47,19 @@ The second visual consists of a spinning pyramid with a floating eye above and a
 ![An image](java/data/images/Serg4.png)
 
 # Aaron
+My goal for my visual was to create something that could match both the intense start and subtle end to my segemnt of the song.
+My Visual consist of multiple elipses rotating on the X and Y axis that forms a sphere like shape. The speed of rotation, radiusn of the elipse and colour are all affected by amplitude. 
+I also included a particle affect that fires hundres of particles from the perimeter of the sphere outwards that slowly fade and despawn. The particles velocity and spawn rate is affected by amplitude. If the amplitude is low enough, the particles fire inwards instead of outwards to create a cool effect. I created a seperate class for particles, but also have code for them in AaronVisual inside the particle function.
+I allocated 9 seperate sets of lines to the 9 frequency bands declared in Visual that will appear for a minimum of one second if the corresponding frequency band is the highest at that moment. I also added beat detection code to trigger the lines code. each set of lines has seperate length, colour and location. They also have a strobe effect which make sthem flicker. This variety creates a very appealing effect.
 
+Towards the end of my segment, the music gets quieter, which slows down the rotation of the elipses and the particles fire inwards. This creates what looks like an eye ball blinking which I thought was a very cool aspect. With this I achieved my goal of having a cool subtle ending to the song after the intensity beforehand.
+
+I also created the opening screen which has our names pulsing big to small.
+
+![An image](java/data/images/Aaron1.png)
+![An image](java/data/images/Aaron2.png)
+![An image](java/data/images/Aaron3.png)
+![An image](java/data/images/Aaron4.png)
 
 # What we are most proud of in the assignment
 We are most proud of using everything we learned this year to create a music visualization that uses OOP principles, primarily encapsulation and inheritance. We are proud of how the visual turned out and the way that the visualization came together. We like how the visuals start of quite tame and calm just like the song does. Then when the tempo and beat get more dramatic so do the visuals which is only fitting for a song like "Bohemian Rhapsody". 

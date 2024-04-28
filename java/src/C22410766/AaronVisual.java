@@ -26,11 +26,9 @@ public class AaronVisual {
         visual.startMinim();
         this.displayTimers = new int[visual.getSmoothedBands().length]; // Initialize the timers
         
-
         this.centerX = visual.width / 2;
         this.centerY = visual.height / 2;
 
-        
     }
 
 
@@ -43,8 +41,8 @@ public class AaronVisual {
             e.printStackTrace();
         }
 
-        visual.calculateFrequencyBands(); // Calculate frequency bands
-        bands = visual.getSmoothedBands(); // max 667
+        visual.calculateFrequencyBands(); 
+        bands = visual.getSmoothedBands(); 
         len = bands.length;
         
         visual.calculateAverageAmplitude(); // Calculate amplitude
@@ -53,7 +51,7 @@ public class AaronVisual {
         
 
         float b = 0;                 // Angle of rotation
-        float offset = (float) (visual.PI/24.0);  // Angle offset between boxes
+        float offset = (float) (Visual.PI/24.0);  // Angle offset between boxes
         int num = 60;
 
         float hue = Visual.map(amplitude, 0.15f, 0.3f, 100, 255);
@@ -64,7 +62,6 @@ public class AaronVisual {
         
         for (int i = 0; i < num; i++) {
             visual.pushMatrix();
-            //visual.fill(gray);
             visual.stroke(hue, 255, 255);
             visual.rotateY(b + rotateVelocity * i);    // Rotate around Y axis
             visual.rotateX(b / 2 + rotateVelocity * i); // Rotate around X axis
@@ -89,7 +86,6 @@ public class AaronVisual {
             flashDuration--;  // Decrease the timer
         }
 
-
         particles(radius);
         
     }
@@ -106,7 +102,7 @@ public class AaronVisual {
             }
         }
 
-        // Add new particles based on some condition (e.g., on beats)
+        // Add new particles based on amplitude
         for (int i = 0; i < numParticlesToSpawn; i++) {
             float angle = visual.random(Visual.TWO_PI);
             float velocityFactor = Visual.map(amplitude, 0.1f, 0.24f, 1, 7);  // Map the band amplitude to a useful velocity range
